@@ -1,0 +1,10 @@
+@charset "utf-8";
+.theme-default {
+  &.p-home {
+    background-image: url('./images/bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #000;
+  }
+}
