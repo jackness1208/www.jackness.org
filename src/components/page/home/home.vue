@@ -35,9 +35,9 @@ div.p-home(:class="theme.themeClass")
 }
 .p-home__view__item {
   display: inline-block;
-  width: 100px;
-  height: 100px;
-  margin: 5px;
+  width: 60px;
+  height: 60px;
+  margin: 2px;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.5);
   transition: background 0.5s;
@@ -69,7 +69,7 @@ div.p-home(:class="theme.themeClass")
 </style>
 <script>
 import { mapGetters, mapActions } from 'vuex';
-const VIEW_TOTAL = 85;
+const VIEW_TOTAL = 9 * 28;
 const randomIt = function (total, max) {
   const r = [];
   let index = -1;
