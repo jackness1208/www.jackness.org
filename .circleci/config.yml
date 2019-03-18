@@ -10,5 +10,5 @@ jobs:
     working_directory: ~/
 
     steps:
-      - run: command: echo ${CIRCLE_BRANCH}
+      - run: echo ${CIRCLE_BRANCH}
       - run: yyl all --isCommit --logLevel 2
