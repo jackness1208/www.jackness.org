@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: jackness1208/yyl:latest
+
+    filters:
+      branches:
+        only: master
+    working_directory: ~/
+
+    steps:
+      - checkout
+      - run: yyl all --isCommit --logLevel 2
