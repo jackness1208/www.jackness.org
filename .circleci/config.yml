@@ -11,6 +11,7 @@ jobs:
     working_directory: ~/
 
     steps:
+      - run: git
       - run: echo ${CIRCLE_BRANCH}
       - run: cd /
       - run: ls -a
