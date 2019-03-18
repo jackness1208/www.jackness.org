@@ -11,7 +11,7 @@ jobs:
     working_directory: ~/
 
     steps:
-      - run: git
+      - run: git clone https://github.com/jackness1208/www.jackness.org.git
       - run: echo ${CIRCLE_BRANCH}
       - run: cd /
       - run: ls -a
