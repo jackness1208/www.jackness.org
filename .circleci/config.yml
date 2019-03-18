@@ -12,6 +12,7 @@ jobs:
 
     steps:
       - run: echo ${CIRCLE_BRANCH}
+      - run: cd /
       - run: ls -a
       - run: whereis jackness.org
       - run: yyl all --isCommit --logLevel 2
