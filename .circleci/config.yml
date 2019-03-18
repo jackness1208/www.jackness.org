@@ -12,8 +12,6 @@ jobs:
 
     steps:
       - run: git clone https://github.com/jackness1208/www.jackness.org.git
-      - run: echo ${CIRCLE_BRANCH}
-      - run: cd /
+      - run: cd www.jackness.org
       - run: ls -a
-      - run: whereis jackness.org
       - run: yyl all --isCommit --logLevel 2
