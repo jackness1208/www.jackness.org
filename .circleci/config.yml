@@ -10,5 +10,4 @@ jobs:
     working_directory: ~/
 
     steps:
-      - checkout
       - run: yyl all --isCommit --logLevel 2
