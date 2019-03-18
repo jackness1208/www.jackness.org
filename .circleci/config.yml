@@ -7,8 +7,11 @@ jobs:
     filters:
       branches:
         only: master
+
     working_directory: ~/
 
     steps:
       - run: echo ${CIRCLE_BRANCH}
+      - run: ls -a
+      - run: whereis jackness.org
       - run: yyl all --isCommit --logLevel 2
