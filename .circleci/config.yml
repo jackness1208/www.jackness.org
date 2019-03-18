@@ -14,4 +14,4 @@ jobs:
       - run: git clone https://github.com/jackness1208/www.jackness.org.git
       - run: cd www.jackness.org
       - run: ls -a
-      - run: yyl all --isCommit --logLevel 2
+      - run: yyl all --config www.jackness.org/yyl.config.js --isCommit --logLevel 2
