@@ -11,9 +11,6 @@ jobs:
     working_directory: ~/
 
     steps:
-      - add_ssh_keys:
-        fingerprints:
-          - "94:f5:9c:ec:49:b8:92:ad:18:10:16:55:49:f8:e5:a6"
       - run: git clone https://github.com/jackness1208/www.jackness.org.git
       - run: cd www.jackness.org
       - run: ls -a
