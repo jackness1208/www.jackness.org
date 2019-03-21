@@ -16,4 +16,5 @@ jobs:
           fingerprints:
             - "94:f5:9c:ec:49:b8:92:ad:18:10:16:55:49:f8:e5:a6"
       - run: yyl all --isCommit --logLevel 2
+      - run: ssh-keyscan 114.215.151.192 >> ~/.ssh/known_hosts
       - run: scp www.jackness.org/dist jackness@114.215.151.192:/www/www.jackness.org
