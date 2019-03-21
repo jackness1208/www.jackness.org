@@ -20,7 +20,7 @@ const setting = {
     port: 5000 // 服务器 port
   },
   dest: {
-    basePath: `/`,
+    basePath: '/',
     jsPath: 'assets/js',
     jslibPath: 'assets/js/lib',
     cssPath: 'assets/css',
@@ -64,8 +64,6 @@ Object.assign(config, {
   webpackConfigPath: WEBPACK_CONFIG_PATH
 });
 // - base
-
-config.plugins.push('yyl-flexlayout');
 
 // + alias
 const DEST_BASE_PATH = path.join(setting.localserver.root, setting.dest.basePath);
@@ -114,7 +112,7 @@ Object.assign(config, {
   commit: {
     type: 'gitlab-ci',
     // 上线配置
-    revAddr: `http://www.jackness.org/assets/rev/rev-manifest.json`,
+    revAddr: 'http://www.jackness.org/assets/rev/rev-manifest.json',
     hostname: '//www.jackness.org',
     staticHost: '//www.jackness.org',
     mainHost: '//www.jackness.org'
