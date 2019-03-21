@@ -8,7 +8,7 @@ jobs:
       branches:
         only: master
 
-    working_directory: ~/
+    working_directory: ~/project
 
     steps:
       - checkout
