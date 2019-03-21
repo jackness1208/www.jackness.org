@@ -12,7 +12,8 @@ jobs:
 
     steps:
       - add_ssh_keys:
-        fingerprints: be:b7:23:e6:96:b5:cf:d3:ee:86:06:03:4e:fc:78:70
+        fingerprints:
+          - "be:b7:23:e6:96:b5:cf:d3:ee:86:06:03:4e:fc:78:70"
       - run: git clone https://github.com/jackness1208/www.jackness.org.git
       - run: cd www.jackness.org
       - run: ls -a
