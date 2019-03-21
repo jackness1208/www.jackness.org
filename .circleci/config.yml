@@ -13,6 +13,5 @@ jobs:
     steps:
       - checkout
       - add_ssh_keys
-      - run: ls -a
       - run: yyl all --isCommit --logLevel 2
       - run: scp www.jackness.org/dist jackness@114.215.151.192:/www/www.jackness.org
