@@ -11,6 +11,7 @@ jobs:
     working_directory: ~/
 
     steps:
+      - add_ssh_keys
       - run: git clone https://github.com/jackness1208/www.jackness.org.git
       - run: cd www.jackness.org
       - run: ls -a
