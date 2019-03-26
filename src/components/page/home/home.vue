@@ -20,6 +20,7 @@ div.p-home(:class="theme.themeClass")
   bottom: 0;
   right: 0;
 }
+
 .p-home__view {
   width: 900px;
   height: 680px;
@@ -38,18 +39,33 @@ div.p-home(:class="theme.themeClass")
   width: 60px;
   height: 60px;
   margin: 2px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.5);
-  transition: background 0.5s;
+  animation: fadeOut 4s forwards;
   &:hover {
-    background: rgba(255, 172, 0, 0.5);
+    animation-name: fadeIn;
   }
 }
-.p-home__view__item--current {
-  background: rgba(255, 255, 255, 0.5);
-  &:hover {
-    background: rgba(255, 172, 0, 0.8);
+@keyframes fadeIn {
+  0% {
+    background-color: rgba(255, 255, 255, 0.1);
   }
+  20%, 100% {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+@keyframes fadeOut {
+  0%, 80% {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.p-home__view__item--current {
+  animation-name: fadeIn;
 }
 .p-home__foot {
   position: fixed;
