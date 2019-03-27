@@ -1,6 +1,9 @@
 <template lang="pug">
 div.p-home(:class="theme.themeClass")
-  div.p-home__view
+  div.p-home-logo
+  div.p-home-nav
+    a(href="http://wiki.jackness.org/", target="wiki") wiki
+  div.p-home__view(:class="[ready ? 'p-home__view--ready': '']")
     div.p-home__view__item(
       v-for="(item, index) in viewItems",
       :data-index="index",
@@ -20,6 +23,56 @@ div.p-home(:class="theme.themeClass")
   bottom: 0;
   right: 0;
 }
+.p-home-logo {
+
+}
+.p-home-nav {
+  position: absolute;
+  z-index: 20;
+  top: 0px;
+  height: 40px;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+  &:before {
+    content: '';
+    vertical-align: middle;
+    display: inline-block;
+    z-index: 21;
+    width: 159px;
+    height: 26px;
+    margin-left: 10px;
+    margin-right: 50px;
+    background: url('./images/logo.png');
+    background-repeat: no-repeat;
+  }
+  a {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    height: 40px;
+    padding: 0 10px;
+    line-height: 40px;
+    &:after {
+      transition: 0.3s;
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255,255,255,.3);
+    }
+    &:hover {
+      &:after {
+        top: 0;
+      }
+    }
+  }
+}
 
 .p-home__view {
   width: 900px;
@@ -34,6 +87,14 @@ div.p-home(:class="theme.themeClass")
   align-content: center;
   flex-wrap: wrap;
 }
+.p-home__view--ready {
+  .p-home__view__item {
+    animation-duration: 3s;
+    &:hover {
+      animation-name: fadeIn;
+    }
+  }
+}
 .p-home__view__item {
   display: inline-block;
   width: 60px;
@@ -41,10 +102,11 @@ div.p-home(:class="theme.themeClass")
   margin: 2px;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.5);
-  animation: fadeOut 4s forwards;
-  &:hover {
-    animation-name: fadeIn;
-  }
+  animation-iteration-count: 1;
+  animation-duration: 0s;
+  animation-direction: forwards;
+  animation-name: fadeOut;
+
 }
 @keyframes fadeIn {
   0% {
@@ -109,6 +171,7 @@ export default {
   },
   data() {
     return {
+      ready: false,
       viewItems: new Array(VIEW_TOTAL + 1).join(0).split('').map(() => 0),
       curs: []
     };
@@ -117,9 +180,12 @@ export default {
   },
   mounted() {
     const vm = this;
-    cache.viewKey = setInterval(() => {
-      vm.$set(vm, 'curs', randomIt(VIEW_TOTAL, 6));
-    }, 1000);
+    setTimeout(() => {
+      vm.ready = true;
+      cache.viewKey = setInterval(() => {
+        vm.$set(vm, 'curs', randomIt(VIEW_TOTAL, 1));
+      }, 1000);
+    }, 3000);
   },
   beforeDestroy() {
     clearInterval(cache.viewKey);
